@@ -2,7 +2,7 @@ import discord
 from youtube_transcript_api import YouTubeTranscriptApi
 
 # For discord bot
-discord_token = 'NjQ5MDU3NTA3NzkyMjU3MDI0.Xd3P7Q.xUrMZr7qKs0Tvh1Kl0VSHE4DTec'
+discord_token = [token]
 
 client = discord.Client()
 
