@@ -2,7 +2,7 @@ import discord
 from youtube_transcript_api import YouTubeTranscriptApi
 
 # For discord bot
-discord_token = [token]
+discord_token = "NjQ5MDU3NTA3NzkyMjU3MDI0.XjsTjA.97107Se0I-1p5m3KHLAAsYnHwsk"
 
 client = discord.Client()
 
@@ -53,6 +53,7 @@ def count_words(line):
         #Cleans word
         word = strip_word(word)
 
+        #Totals the amount of words in image
         if word.isalpha() or "'" in word:
             if word in counter_list:
                 counter_list[word] += 1
@@ -127,6 +128,6 @@ async def on_message(message):
         await message.channel.send("Not a valid YouTube link")
 
 #print(count_words(get_text('7Cykzsi38hA')))
-client.run(discord_token)
+#client.run(discord_token)
 
 
