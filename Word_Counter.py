@@ -127,7 +127,51 @@ async def on_message(message):
     else:
         await message.channel.send("Not a valid YouTube link")
 
+def word_count():
+    link = input("Paste a valid Youtube link")
+    if link[:32] == 'https://www.youtube.com/watch?v=':
+        try:
+            id = link[32:]
+            final = count_words(get_text(id))
+            print(final[0])
+
+            string = ''
+            prev_pair = 0
+            paired = False
+            for i in range(len(final[1])):
+                if len(string) >= 1000:
+                    print(string)
+                    string = ''
+                if final[1][i][1] == prev_pair:
+                    string += ' | ' + str(final[1][i][0]) +' = ' + str(final[1][i][1])
+                    paired = True
+                elif i == 0:
+                    string = str(final[1][i][0]) + ' = ' + str(final[1][i][1])
+                else:
+                    print(string)
+                    string = str(final[1][i][0]) +' = ' + str(final[1][i][1])
+                    paired = False
+                prev_pair = final[1][i][1]
+            print(string)
+            print("THAT'S ALL")
+        except:
+            print("This video does not have subtitles")
+    else:
+        print("Not a valid YouTube link")
 #print(count_words(get_text('7Cykzsi38hA')))
-#client.run(discord_token)
+
+
+
+mode = int(input("Enter 1 for terminal. 2 for discord"))
+
+if mode == 1:
+    word_count();
+
+elif mode == 2:
+    client.run(discord_token)
+else:
+    print("invalid input. Try again")
+    mode = int(input("Enter 1 for terminal. 2 for discord"))
+
 
 
