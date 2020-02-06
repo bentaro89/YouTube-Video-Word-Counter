@@ -169,7 +169,7 @@ while True:
 
     if mode == 1: # For terminal
         while True:
-            word_count();
+            word_count()
 
     elif mode == 2: # For discord
         client.run(discord_token)
